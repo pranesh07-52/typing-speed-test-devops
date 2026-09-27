@@ -22,6 +22,21 @@ pipeline {
                 bat 'docker build -t typing-speed-test .'
             }
         }
+
+        stage('Push to GHCR') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'ghcr-creds', usernameVariable: 'GHCR_USER', passwordVariable: 'GHCR_TOKEN')]) {
+                    echo 'Logging in to GHCR...'
+                    bat 'echo %GHCR_TOKEN% | docker login ghcr.io -u %GHCR_USER% --password-stdin'
+
+                    echo 'Tagging image for GHCR...'
+                    bat 'docker tag typing-speed-test ghcr.io/pranesh07-52/typing-speed-test-devops:latest'
+
+                    echo 'Pushing image to GHCR...'
+                    bat 'docker push ghcr.io/pranesh07-52/typing-speed-test-devops:latest'
+                }
+            }
+        }
     }
 
     post {
