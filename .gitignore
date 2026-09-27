@@ -30,3 +30,11 @@ coverage/
 # Logs
 logs/
 *.log
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Keep the lock file tracked
+!.terraform.lock.hcl
