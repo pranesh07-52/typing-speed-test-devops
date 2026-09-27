@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="Typing speed test app">
+      <h1>Typing Speed Test</h1>
+
+      <section class="stats" aria-label="Typing test statistics">
+        <div class="stat-card">
+          <span class="stat-label">Time</span>
+          <span id="timer" class="stat-value">60</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">WPM</span>
+          <span id="wpm" class="stat-value">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Accuracy</span>
+          <span id="accuracy" class="stat-value">100%</span>
+        </div>
+      </section>
+
+      <section class="passage-box" aria-label="Typing passage">
+        <p id="typing-passage">
+          The quick brown fox jumps over the lazy dog. Practice makes perfect, and every keystroke builds speed and confidence. Type steadily, stay focused, and keep your rhythm smooth.
+        </p>
+      </section>
+
+      <label for="typing-input" class="sr-only" style="position:absolute; left:-9999px;">Type here</label>
+      <textarea id="typing-input" placeholder="Start typing here..." aria-label="Type the passage here"></textarea>
+
+      <div class="controls">
+        <button id="start-btn" type="button">Start</button>
+        <button id="reset-btn" type="button">Reset</button>
+      </div>
+
+      <p id="result-message" class="result-message" aria-live="polite"></p>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
